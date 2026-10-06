@@ -9,7 +9,7 @@
 
 	<groupId>org.openmrs.module</groupId>
 	<artifactId>digipath.connector</artifactId>
-	<version>1.0.1-SNAPSHOT</version>
+	<version>1.0.2-SNAPSHOT</version>
 	<packaging>pom</packaging>
 	<name>Digipath.connector</name>
 	<description>OpenMRS dipgpath connector</description>
@@ -52,7 +52,7 @@
 			<dependency>
 				<groupId>net.openclinical</groupId>
 				<artifactId>proforma-java</artifactId>
-				<version>0.3.0</version>
+				<version>0.3.2-SNAPSHOT</version>
 			</dependency>
 
 
@@ -234,16 +234,16 @@
 	</properties>
 
 	<distributionManagement>
-		<repository>
-			<id>github</id>
-			<name>GitHub Packages</name>
-			<url>https://maven.pkg.github.com/Gamshan/openmrs-digipath-connector</url>
-		</repository>
 		<snapshotRepository>
-			<id>github</id>
-			<name>GitHub Packages</name>
-			<url>https://maven.pkg.github.com/Gamshan/openmrs-digipath-connector</url>
+			<id>openmrs-repo-snapshots</id>
+			<name>OpenMRS Snapshots</name>
+			<url>https://openmrs.jfrog.io/artifactory/snapshots</url>
 		</snapshotRepository>
+		<repository>
+			<id>openmrs-repo</id>
+			<name>OpenMRS Releases</name>
+			<url>https://openmrs.jfrog.io/artifactory/releases</url>
+		</repository>
 	</distributionManagement>
 
 </project>

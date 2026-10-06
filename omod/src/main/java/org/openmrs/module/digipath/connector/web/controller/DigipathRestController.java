@@ -51,6 +51,9 @@ public class DigipathRestController extends MainResourceController {
 	@ResponseBody
 	public List<Map<String, Object>> getDigipathRecommendations(@RequestParam String patientUuid) {
 
+
+		System.out.println("HEREEEEEE GET RECOMMENDATIONS =>>>>>>>>>>>>>>>>>");
+
 		User authenticatedUser = Context.getAuthenticatedUser();
 		DigipathRestService digipathRestService = Context.getService(DigipathRestService.class);
 		ExecutorService executor = Executors.newFixedThreadPool(5);

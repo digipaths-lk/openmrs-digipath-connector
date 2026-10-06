@@ -37,18 +37,21 @@ public class ConditionEvaluator implements DataDefinitionEvaluator {
 	}
 	
 	private List<EnactmentOptions.TimestampedValue> extractAllDataForCode(Code code, Patient patient, String value) {
-		System.out.println("#### conditionList" + code);
 		Concept concept = DigipathUtils.getConceptByCode(code);
 		List<EnactmentOptions.TimestampedValue> list = new ArrayList<>();
 		List<Condition> conditionList = conditionService.getActiveConditions(patient);
 
-		System.out.println("conditionList" + conditionList.size());
-
 		Stream<Condition> filteredList =  conditionList.stream().filter(condition -> condition.getCondition().getCoded() == concept);
+
 		Optional<Condition> optionalCondition = filteredList.findFirst();
         Date date = optionalCondition.map(Condition::getOnsetDate).orElse(null);
+
+		if(date == null)
+			date = optionalCondition.map(Condition::getDateCreated).orElse(null);
+
 		if(date != null)
 			 list.add(new EnactmentOptions.TimestampedValue(date.toInstant(), Collections.singletonList(value)));
+
 		if(!list.isEmpty())
 			return list;
 		return null;
