@@ -3,7 +3,7 @@
 	<parent>
 		<groupId>org.openmrs.module</groupId>
 		<artifactId>digipath.connector</artifactId>
-		<version>1.0.1-SNAPSHOT</version>
+		<version>1.0.2-SNAPSHOT</version>
 	</parent>
 
 	<artifactId>digipath.connector-api</artifactId>
@@ -25,7 +25,7 @@
 		<dependency>
 			<groupId>net.openclinical.proforma</groupId>
 			<artifactId>proforma-java</artifactId>
-			<version>0.3.0</version>
+			<version>0.3.2-SNAPSHOT</version>
 			<scope>provided</scope>
 
 			<exclusions>
