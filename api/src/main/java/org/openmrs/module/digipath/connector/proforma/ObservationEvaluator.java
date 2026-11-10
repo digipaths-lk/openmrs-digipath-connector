@@ -15,10 +15,8 @@ import org.openmrs.api.context.Context;
 
 import java.io.IOException;
 import java.time.Instant;
-import java.util.ArrayList;
-import java.util.Date;
-import java.util.List;
-import java.util.Optional;
+import java.util.*;
+import java.util.stream.Collectors;
 
 public class ObservationEvaluator implements DataDefinitionEvaluator {
 	
@@ -46,6 +44,8 @@ public class ObservationEvaluator implements DataDefinitionEvaluator {
 		List<Obs> obsList = obsService.getObservationsByPersonAndConcept(patient, concept);
 		List<EnactmentOptions.TimestampedValue> timestampedValueList = new ArrayList<>();
 
+		if(obsList.isEmpty())
+			return timestampedValueList;
 
 		obsList.forEach(obs -> {
 			if(obs.getValueNumeric() != null && (isMultiValue || timestampedValueList.isEmpty())) {
@@ -61,8 +61,9 @@ public class ObservationEvaluator implements DataDefinitionEvaluator {
 				});
 			}
 		});
-
-		return timestampedValueList;
+		return timestampedValueList.stream()
+				.sorted(Comparator.comparing(EnactmentOptions.TimestampedValue::getWhen))
+				.collect(Collectors.toList());
 
     }
 }

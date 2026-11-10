@@ -1,5 +1,4 @@
-<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
-		xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/maven-v4_0_0.xsd">
+<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/maven-v4_0_0.xsd">
 	<modelVersion>4.0.0</modelVersion>
 
     <parent>
@@ -10,7 +9,7 @@
 
 	<groupId>org.openmrs.module</groupId>
 	<artifactId>digipath.connector</artifactId>
-	<version>1.0.0-SNAPSHOT</version>
+	<version>1.0.2-SNAPSHOT</version>
 	<packaging>pom</packaging>
 	<name>Digipath.connector</name>
 	<description>OpenMRS dipgpath connector</description>
@@ -18,10 +17,11 @@
 	<url>https://wiki.openmrs.org/x/FQ4z</url>
 
 	<scm>
-		<connection>scm:git:git@github.com:openmrs/openmrs-module-digipath.connector.git</connection>
-		<developerConnection>scm:git:git@github.com:openmrs/openmrs-module-digipath.connector.git</developerConnection>
-		<url>https://github.com/openmrs/openmrs-module-digipath.connector/</url>
-	</scm>
+		<connection>scm:git:git@github.com:Gamshan/openmrs-digipath-connector.git</connection>
+		<developerConnection>scm:git:git@github.com:Gamshan/openmrs-digipath-connector.git</developerConnection>
+		<url>https://github.com/Gamshan/openmrs-digipath.connector/</url>
+    <tag>HEAD</tag>
+  </scm>
 
 	<modules>
 		<module>api</module>
@@ -52,7 +52,7 @@
 			<dependency>
 				<groupId>net.openclinical</groupId>
 				<artifactId>proforma-java</artifactId>
-				<version>0.1.7-SNAPSHOT</version>
+				<version>0.3.2-SNAPSHOT</version>
 			</dependency>
 
 
@@ -174,7 +174,7 @@
 							<eclipse>
 								<file>${project.basedir}/OpenMRSFormatter.xml</file>
 							</eclipse>
-							<removeUnusedImports/>
+							<removeUnusedImports />
 							<importOrder>
 								<order>javax,java</order>
 							</importOrder>
@@ -232,4 +232,18 @@
 	<properties>
 		<openmrsPlatformVersion>1.11.6</openmrsPlatformVersion>
 	</properties>
+
+	<distributionManagement>
+		<snapshotRepository>
+			<id>openmrs-repo-snapshots</id>
+			<name>OpenMRS Snapshots</name>
+			<url>https://openmrs.jfrog.io/artifactory/snapshots</url>
+		</snapshotRepository>
+		<repository>
+			<id>openmrs-repo</id>
+			<name>OpenMRS Releases</name>
+			<url>https://openmrs.jfrog.io/artifactory/releases</url>
+		</repository>
+	</distributionManagement>
+
 </project>
